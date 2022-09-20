@@ -4,6 +4,7 @@
   import Modal from './lib/Modal.svelte';
   import chuckNorrisLogo from './assets/chuck-norris.png';
 
+  // TODO: Move to types file
   interface Joke {
     categories: Array<string>;
     created_at: string;
@@ -23,6 +24,7 @@
     void fetchCategories();
   });
 
+  // TODO: Move to helper file
   async function fetchCategories() {
     const url = 'https://api.chucknorris.io/jokes/categories';
 
@@ -35,6 +37,7 @@
     }
   }
 
+  // TODO: Move to helper file
   async function fetchJoke() {
     const url = `https://api.chucknorris.io/jokes/random?category=${selectedCategory}`;
 
@@ -53,6 +56,7 @@
     <Dropdown {categories} bind:value={selectedCategory} />
   </div>
 
+  <!-- TODO: Add a "JokeModal" component -->
   <Modal bind:this={modal}>
     <button on:click={fetchJoke} slot="trigger" type="button">
       Joke It Up
