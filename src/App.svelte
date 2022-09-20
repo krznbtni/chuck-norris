@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import Dropdown from './lib/Dropdown.svelte';
 
-  let value: string;
+  let selectedCategory: string;
   let categories: Array<string> = [];
 
   onMount(async () => {
@@ -15,7 +15,7 @@
     try {
       const response = await fetch(url);
       categories = await response.json();
-      value = categories[0];
+      selectedCategory = categories[0];
     } catch (e) {
       console.error('Error fetching categories:', e);
     }
@@ -24,7 +24,7 @@
 
 <main>
   <div>
-    <Dropdown {categories} {value} />
+    <Dropdown {categories} bind:value={selectedCategory} />
   </div>
 </main>
 
