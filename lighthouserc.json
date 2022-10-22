@@ -1,11 +1,5 @@
 {
   "ci": {
-    "assert": {
-      "preset": "lighthouse:recommended",
-      "assertions": {
-        "categories:pwa": "off"
-      }
-    },
     "upload": {
       "target": "temporary-public-storage"
     }
